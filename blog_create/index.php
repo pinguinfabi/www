@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require_once("../loginchek.php");
+    require_once("../logincheck.php");
     loginCheck();
     checkAuthorRole();
     require_once("../config.php");
