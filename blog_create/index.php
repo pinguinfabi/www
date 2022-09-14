@@ -5,6 +5,8 @@
     checkAuthorRole();
     require_once("../config.php");
     $userid = $_SESSION['id'];
+    $zero = 0;
+    $title = "Titel";
     $conn = mysqli_connect($db_host,$db_user,$db_pass,"fabiderpinguin");
     if(mysqli_connect_errno()){
         header("Location: ../index.php?e=dberr");
@@ -19,8 +21,8 @@
     $stmt->fetch();
     $stmt->close();
     // insert an example blog page
-    $stmt = $conn->prepare("INSERT INTO blog (title,author,visibility) VALUES (?,?,?)");
-    $stmt->bind_param("sss","Titel",$username,"0");
+    $stmt = $conn->prepare("INSERT INTO blog (title, author, visibility) VALUES (?, ?, ?)");
+    $stmt->bind_param("ssi",$title,$username,$zero);
     $stmt->execute();
     $conn->close();
     header("Location: ../blog_editor/");
