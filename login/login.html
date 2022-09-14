@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./formular_style.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Login</title>
+
+</head>
+
+<body>
+    <div id="output_message"></div>
+
+    <div class="container">
+        <div class="container_inner">
+            <h1 id="formlog_title">Log in</h1>
+            <hr>
+            <form action="login.php" method="post">
+                Deine Mail:<br>
+                <input type="email" size="40" maxlength="250" name="email"><br><br> Dein Passwort:<br>
+                <input type="password" size="40" maxlength="250" name="passwort"><br>
+
+                <input id="register_button" type="submit" value="Log in">
+                <a href="../index.php">Home</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="../message_script.js"></script>
+</body>
+
+</html>
