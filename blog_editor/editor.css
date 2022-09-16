@@ -1,0 +1,21 @@
+#editorjs{
+    color: black;
+    margin: 3em;
+    margin-left: 30em;
+    margin-right: 30em;
+    background-color: white;
+}
+
+#button_group{
+    text-align: center;
+}
+
+#title {
+    display: block;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
+    overflow: hidden;
+}
+
