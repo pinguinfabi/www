@@ -24,7 +24,11 @@
     $stmt = $conn->prepare("INSERT INTO blog (title, author, visibility) VALUES (?, ?, ?)");
     $stmt->bind_param("ssi",$title,$username,$zero);
     $stmt->execute();
+    $blogid = $stmt->insert_id;
     $conn->close();
-    header("Location: ../blog_editor/");
+    $filepath = "../blog/blog_entry_".$blogid.".php";
+    $file = fopen($filepath, "w");
+    fclose($file);
+    header("Location: ../blog_editor/?id=".$blogid);
     exit();
 ?>
