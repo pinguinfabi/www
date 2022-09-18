@@ -26,7 +26,10 @@
     $stmt->execute();
     $blogid = $stmt->insert_id;
     $conn->close();
-    $filepath = "../blog/blog_entry_".$blogid.".php";
+    $filepath = "../blog/blog_entry_html_".$blogid.".json";
+    $file = fopen($filepath, "w");
+    fclose($file);
+    $filepath = "../blog/blog_entry_json_".$blogid.".json";
     $file = fopen($filepath, "w");
     fclose($file);
     header("Location: ../blog_editor/?id=".$blogid);

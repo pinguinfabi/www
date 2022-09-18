@@ -4,6 +4,22 @@
     // loginCheck();
     // checkAuthorRole();
     require("../navbar.php");
+    require_once("../config.php");
+    $id = $_GET["id"];
+    $conn = mysqli_connect($db_host,$db_user,$db_pass,"fabiderpinguin");
+    if(mysqli_connect_errno()){
+        header("Location: ../index.php?e=dberr");
+        exit();
+    }
+
+    $stmt = $conn->prepare("SELECT title FROM blog WHERE article_id = ?");
+    $stmt->bind_param("s",$id);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($title);
+    $stmt->fetch();
+    $stmt->close();
+
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +41,7 @@
         </ul>
     </nav>
 
-    <textarea id="title" name="title" id="title" cols="50" rows="1"></textarea>
+    <textarea id="title" name="title" id="title" cols="50" rows="1"><?=$title?></textarea>
 
     <div id="editorjs"></div>
 
@@ -40,6 +56,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
     <script src="./index.js"></script>
 
 </body>

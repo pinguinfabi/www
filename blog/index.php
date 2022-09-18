@@ -1,5 +1,26 @@
 <?php 
-    require_once("./blog_entry_".$_GET["id"].".php");
+
+    $id = $_GET["id"];
+
+    $f = fopen("./blog_entry_html_".$id.".json", "r");
+    $readFile = json_decode(fread($f, filesize("./blog_entry_html_".$_GET["id"].".json")));
+    fclose($f);
+
+    session_start();
+    require_once("../config.php");
+    $conn = mysqli_connect($db_host,$db_user,$db_pass,"fabiderpinguin");
+    if(mysqli_connect_errno()){
+        header("Location: ./login.php?e=dberr");
+        exit;
+    }
+    
+    $stmt = $conn->prepare("SELECT title FROM blog WHERE article_id = ?");
+    $stmt->bind_param("s",$id);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($title);
+    $stmt->fetch();
+
 ?>
 
 
@@ -15,8 +36,8 @@
 <body>
     
     <?php 
-        foreach (json_decode($html) as $key => $value) {
-            echo $value;
+        foreach ($readFile as $val) {
+            echo $val;
         }
     ?>
 </body>
