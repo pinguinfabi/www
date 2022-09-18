@@ -17,6 +17,10 @@ const editor = new EditorJS({
             ]
 
         },
+        paragraph: {
+            class: Paragraph,
+            inlineToolbar: true,
+        },
 
     }
     /**

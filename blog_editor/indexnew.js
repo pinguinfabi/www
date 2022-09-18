@@ -39,6 +39,10 @@ $.getJSON('../blog/blog_entry_json_' + id + '.json', (filedata) => {
                         }
                     }
                 },
+                paragraph: {
+                    class: Paragraph,
+                    inlineToolbar: true,
+                },
             },
             data: filedata
         }
@@ -69,6 +73,10 @@ $.getJSON('../blog/blog_entry_json_' + id + '.json', (filedata) => {
                             coub: true
                         }
                     }
+                },
+                paragraph: {
+                    class: Paragraph,
+                    inlineToolbar: true,
                 },
             }
         }
