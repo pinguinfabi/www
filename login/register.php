@@ -49,8 +49,8 @@
     //Keine Fehler, wir können den Nutzer registrieren  
     $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
     
-    $stmt = $conn->prepare("INSERT INTO users (email,passwort) VALUES (?,?)");
-    $stmt->bind_param("ss",$email,$passwort_hash);
+    $stmt = $conn->prepare("INSERT INTO users (username,email,passwort) VALUES (?,?,?)");
+    $stmt->bind_param("sss",$username,$email,$passwort_hash);
     $stmt->execute();
     $conn->close();
     header("Location: ./login.html?e=reg");
