@@ -28,9 +28,11 @@
     $conn->close();
     $filepath = "../blog/blog_entry_html_".$blogid.".json";
     $file = fopen($filepath, "w");
+    fwrite($file, '["<p>Write your text here...</p>"]');
     fclose($file);
     $filepath = "../blog/blog_entry_json_".$blogid.".json";
     $file = fopen($filepath, "w");
+    fwrite($file, '{"time":1663703565808,"blocks":[{"id":"vuL8va1eFj","type":"paragraph","data":{"text":"Write your text here...","alignment":"left"}}],"version":"2.25.0"}');
     fclose($file);
     header("Location: ../blog_editor/?id=".$blogid);
     exit();
