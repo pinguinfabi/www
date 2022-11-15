@@ -1,5 +1,6 @@
 <?php 
     require("../navbar.php");
+    require("../footer.php");
 
     $id = $_GET["id"];
 
@@ -36,8 +37,8 @@
     <title><?=$title?></title>
 </head>
 <body>
-    <!-- needs to be the thirst in body for css code -->
-    <nav>
+
+    <nav class="navbar">
         <ul id="navbar">
             <?php getRoleNav($_SESSION['role']) ?>
         </ul>
@@ -48,5 +49,14 @@
             echo $val;
         }
     ?>
+
+    <div class="footer">
+		<div class="text">
+			<?php
+				footer();
+			?>
+		</div>
+	</div>
+
 </body>
 </html>

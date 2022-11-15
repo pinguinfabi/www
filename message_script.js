@@ -7,7 +7,7 @@ var url = window.location.href;
 
 // Error messages
 const error_messages = {
-    "emailorpass": "The email or password are incorrect.",
+    "usernameorpass": "The username or password are incorrect.",
     "dberr": "Failed to connect to the Database.",
     "log": "You are now logged in",
     "reg": "You are now registered.\n Please log in to access our content",
@@ -16,7 +16,8 @@ const error_messages = {
     "samepass": "Please make sure that both passwords are the same.",
     "validemail": "Please use an email that exists.",
     "nameused": "Please use an other username.",
-    "norights": "YOU HAVE NO RIGHTS TO CALL THAT PAGE!!!"
+    "norights": "YOU HAVE NO RIGHTS TO CALL THAT PAGE!!!",
+    "del_fail": "Sorry, but we could not find your file. Pleas try again"
 }
 
 // Check if there is an ?e= in the url

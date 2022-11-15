@@ -1,12 +1,18 @@
-#editorjs{
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#editorjs {
     color: black;
-    margin: 3em;
-    margin-left: 10em;
-    margin-right: 10em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    margin-left: 20em;
+    margin-right: 20em;
     background-color: white;
 }
 
-#button_group{
+#button_group {
     text-align: center;
 }
 
@@ -19,3 +25,11 @@
     overflow: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+}

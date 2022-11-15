@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../login/formular_style.css" />
+    <title>Kontakt</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="output_message"></div>
+    <!-- Registration formular -->
+    <div class="container">
+        <div class="container_inner">
+            <h1 id="form_title">Kontakt</h1>
+            <hr>
+            <form action="contact.php" method="post">
+                <h10 id="email">E-Mail:<br></h10>
+                <input type="email" size="40" maxlength="250" name="email"><br><br>
+
+                <h10 id="username">Nutzername:<br></h10>
+                <input type="username" size="40" maxlength="250" name="username"><br><br>
+
+                <h10 id="password_up">Betreff<br></h10>
+                <input type="betreff" size="40" maxlength="250" name="Betreff"><br>
+
+                <h10 id="password_down">Text<br></h10>
+                <input type="text" size="100" maxlength="250" name="text"><br><br>
+
+                <input id="register_button" type="submit" value="Senden">
+                <a href="../">Home</a>
+            </form>
+
+        </div>
+    </div>
+
+
+
+    <script src="../message_script.js"></script>
+</body>
+
+</html>
+</body>
+</html>
