@@ -103,6 +103,7 @@ nav>ul>li a:hover {
     align-items: center;
     bottom: 0;
     width: 100%;
+    position: absolute;
 }
 
 .footer>div>a {

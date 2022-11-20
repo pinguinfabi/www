@@ -14,7 +14,7 @@
     <!-- Registration formular -->
     <div class="container">
         <div class="container_inner">
-            <h1 id="form_title">Registrieren</h1>
+            <h1 id="formlog_title">Registrieren</h1>
             <hr>
             <form action="register.php" method="post">
                 <h10 id="email">E-Mail:<br></h10>
@@ -29,8 +29,10 @@
                 <h10 id="password_down">Passwort wiederholen:<br></h10>
                 <input type="password" size="40" maxlength="250" name="passwort2"><br><br>
 
-                <input id="register_button" type="submit" value="Registrieren">
-                <a href="../">Home</a>
+                <div id="bottom_buttons">
+                    <input id="register_button" type="submit" value="Registrieren">
+                    <a href="../home/">Home</a>
+                </div>
             </form>
 
         </div>

@@ -1,0 +1,106 @@
+.container {  
+	display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+		"left_sidebar user_details user_actions"
+		"left_sidebar user_posts user_actions";
+  	}
+  
+.left_sidebar { 
+    grid-area: left_sidebar;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto min-content;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "user_list"
+      "user_create"; 
+}
+  
+.user_details { 
+    grid-area: user_details; 
+}
+  
+.user_posts { 
+    grid-area: user_posts; 
+}
+
+.user_create { 
+	grid-area: user_create; 
+}
+
+.user_list { 
+	grid-area: user_list;
+	overflow: auto;
+}
+
+.user_actions {
+	grid-area: user_actions;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 1rem 1rem ;
+	grid-auto-flow: row;
+	grid-template-areas: "user_action-purge user_action-role"
+	"user_action-invis_all user_action-verify";
+	padding: 1rem 5px;
+}
+
+.user_action-purge {
+	grid-area: user_action-purge;
+}.user_action-role {
+	grid-area: user_action-role;
+}.user_action-invis_all {
+	grid-area: user_action-invis_all;
+}.user_action-verify {
+	grid-area: user_action-verify;
+}
+
+.user_actions div {
+	padding: 1rem 1rem 0 1rem;
+	background-color: #333;
+	border-radius: 1rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 2fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"user_actions-action_icon"
+		"user_actions-action_title";
+	cursor: pointer;
+}
+  
+.user_actions-action_icon { 
+	grid-area: user_actions-action_icon; 
+	font-size: 5rem;
+	margin: auto;
+}
+
+.user_actions-action_title { 
+	grid-area: user_actions-action_title; 
+	font-size: 2rem;
+	text-align: center;
+}
+  
+  
+
+.user_list-item,
+#user_creation_button {  
+	background-color: #333;
+	border-radius: 10px;
+	padding: 10px;
+	width: auto;
+	margin: 5px 5px 0px 5px;
+	font-size: 1.25rem;
+	cursor: pointer;
+}
+
+#user_creation_button {
+	text-align: center;
+	margin-bottom: 5px;
+}

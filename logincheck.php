@@ -14,7 +14,12 @@
             header("Location: /?e=norights");
         }
     }
-
-    
+    // Checks if user has role author or higher
+    function checkAdminRole()
+    {
+        if ( $_SESSION["role"] != "admin") {
+            header("Location: /?e=norights");
+        }
+    }
 
 ?>

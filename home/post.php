@@ -14,7 +14,7 @@
         global $conn, $visibility, $limitPosts;
         // Get all blogs
         $blog_list = array();
-        $query=$conn->query("SELECT article_id, title, author, created_at FROM `blog` WHERE visibility = ".$visibility." LIMIT ".$limitPosts.";");
+        $query=$conn->query("SELECT article_id, title, author, created_at FROM `blog` WHERE visibility = ".$visibility." ORDER BY created_at DESC LIMIT ".$limitPosts.";");
         if($query){
             while($row = mysqli_fetch_array($query)){
                 echo '<div class="blog_entry"><div class="blog_entry_readmore"><i class="fa-solid fa-right-long"></i> <a href="../blog/?id='.$row["article_id"].'">Mehr lesen</a></div>';
@@ -27,6 +27,3 @@
     
 
 ?>
-
-
-<!-- SELECT article_id, title, author, created_at FROM `blog` WHERE visibility = ? LIMIT ? -->

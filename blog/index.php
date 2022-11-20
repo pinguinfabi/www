@@ -1,6 +1,9 @@
 <?php 
     require("../navbar.php");
     require("../footer.php");
+    require_once("../logincheck.php");
+    loginCheck();
+    checkAuthorRole();
 
     $id = $_GET["id"];
 
@@ -50,7 +53,7 @@
         }
     ?>
 
-    <div class="footer">
+<div class="footer">
 		<div class="text">
 			<?php
 				footer();

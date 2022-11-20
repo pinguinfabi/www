@@ -26,7 +26,7 @@
         $_SESSION['id'] = $id;
         $_SESSION['role'] = $role;
         $_SESSION['loggedin'] = true;        $_SESSION['username'] = $username;        $conn->close();
-        header("Location: ../index.php");
+        header("Location: ../home/index.php");
         exit();
        
     } else {

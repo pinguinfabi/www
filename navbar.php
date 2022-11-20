@@ -6,7 +6,7 @@
     $nav_home = '<li class="nav_left"><a href="/">Home</a></li>';
     $nav_create = '<li class="nav_left"><a href="/blog_create">Post erstellen</a></li>';
     $nav_archiv = '<li class="nav_left"><a href="/archiv">Archiv</a></li>';
-    $nav_admin = '<li class="nav_left"><a href="/admin">Admin</a></li>';
+    $nav_admin = '<li class="nav_left"><a href="/admin/">Admin</a></li>';
 
     // Not logged in
     function navbar_notloggedin(){

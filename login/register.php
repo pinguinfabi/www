@@ -53,7 +53,7 @@
     $stmt->bind_param("sss",$username,$email,$passwort_hash);
     $stmt->execute();
     $conn->close();
-    header("Location: ./login.html?e=reg");
+    header("Location: ./login.html");
     exit();
 
 ?>

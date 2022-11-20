@@ -1,6 +1,6 @@
 <?php
 
-    $footer_contact = '<a href="/contact/contact.html">Kontakt</a><br>';
+    $footer_contact = '<a href="/">Kontakt</a><br>';
     $footer_copiryght = '©2022';
 
     function footer()
