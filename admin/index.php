@@ -6,6 +6,8 @@
   require("../navbar.php");
   require("../footer.php");
   require("./users.php");
+  require("./post.php");
+
 ?>
 <!DOCTYPE html>
 
@@ -46,7 +48,8 @@
 				</div>
 			</div>
 			<div class="user_details"></div>
-			<div class="user_posts"></div>
+			<div class="user_posts">
+			</div>
 			<div class="user_actions">
 				<div class="user_action-purge">
 					<div class="user_actions-action_icon"><i class="fa-solid fa-gavel"></i></div>

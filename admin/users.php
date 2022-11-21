@@ -12,10 +12,10 @@
         global $conn;
         // Get all users
         $blog_list = array();
-        $query=$conn->query("SELECT username FROM `users` ORDER BY created_at ASC;");
+        $query=$conn->query("SELECT username, id FROM `users` ORDER BY created_at ASC;");
         if($query){
             while($row = mysqli_fetch_array($query)){
-                echo '<div class="user_list-item">'.$row["username"].' </div>';
+                echo '<div class="user_list-item" onclick="location.assign(\'./?id='.$row["id"].'\')"> '.$row["username"].' </div>';
             }
         }
     }

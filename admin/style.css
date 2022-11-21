@@ -36,6 +36,7 @@
 .user_list { 
 	grid-area: user_list;
 	overflow: auto;
+
 }
 
 .user_actions {
@@ -100,7 +101,15 @@
 	cursor: pointer;
 }
 
+.user_list-item_name, .user_list-item_name:visited {
+	text-decoration: none;
+	color: white;
+	text-decoration-style: none;
+}
+
 #user_creation_button {
 	text-align: center;
 	margin-bottom: 5px;
 }
+
+
