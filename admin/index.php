@@ -6,6 +6,7 @@
 	require("../navbar.php");
 	require("../footer.php");
 	require("./users.php");
+	require("./user_posts.php");
 	require_once("../config.php");
 
 	if(isset($_GET["id"])){
@@ -21,7 +22,7 @@
     	$stmt->bind_param("i",$id);
    	 	$stmt->execute();
     	$stmt->store_result();
-		$stmt->bind_result($username, $email, $crated_at, $updated_at, $role);
+		$stmt->bind_result($username, $email, $created_at, $updated_at, $role);
 		$stmt->fetch();
 	}
 
@@ -31,7 +32,7 @@
 <html>
   	<head>
 		<meta charset="UTF-8" />
-		<title>Menu</title>
+		<title>Admin</title>
 		<link rel="stylesheet" href="/style.css" />
 		<link rel="stylesheet" href="./style.css">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,7 +69,7 @@
 				<div class="user_name"><?=$username?> (<?=$id?>)</div>
 				<div class="user_dates"> 
 					<div class="user_dates-text"> 
-						<div class="user_dates-text1"> <?=date("d/m/Y", strtotime($crated_at))?> </div><br> 
+						<div class="user_dates-text1"> <?=date("d/m/Y", strtotime($created_at))?> </div><br> 
 						<div class="user_dates-text2"><?=date("d/m/Y", strtotime($updated_at))?></div>
 					</div>
 				</div>
@@ -76,6 +77,22 @@
 				<div class="user_mail"> <div class="user_mail-text"> <?=$email?> </div></div>
 			</div>
 			<div class="user_posts">
+				<table>
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Titel</th>
+							<th>Datum</th>
+							<th>Author</th>
+							<th>Sichtbarkeit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+							post_posts($id);
+						?>
+					</tbody>
+				</table>
 			</div>
 			<div class="user_actions">
 				<div class="user_action-purge">

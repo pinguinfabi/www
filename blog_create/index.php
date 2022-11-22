@@ -23,8 +23,8 @@
     $stmt->close();
 
     // insert an example blog page
-    $stmt = $conn->prepare("INSERT INTO blog (title, author, visibility) VALUES (?, ?, ?)");
-    $stmt->bind_param("ssi",$title,$username,$zero);
+    $stmt = $conn->prepare("INSERT INTO blog (title, author, author_id, visibility) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssii",$title,$username, $userid, $zero);
     $stmt->execute();
     $blogid = $stmt->insert_id;
     $conn->close();

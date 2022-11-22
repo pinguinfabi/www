@@ -75,6 +75,10 @@
 
 .user_posts {
     grid-area: user_posts;
+    background-color: #333;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .user_create {
@@ -159,4 +163,62 @@
 #user_creation_button {
     text-align: center;
     margin-bottom: 5px;
+}
+
+
+/* Post Tabelle */
+
+.user_posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+table {
+    flex-grow: 1;
+    color: #ffffff;
+    border-radius: 1rem;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0;
+}
+
+thead {
+    text-align: left;
+    position: sticky;
+}
+
+tr td {
+    padding-right: 3.5rem;
+}
+
+th {
+    padding: 0.5vh;
+}
+
+td {
+    padding: 1rem 0.4rem;
+    border-width: 0.2rem 0;
+    border-color: #ffffff;
+    border-style: solid;
+}
+
+td button {
+    font-family: Dosis;
+    background-color: #2b4696;
+    border: 0;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+tbody tr td:last-child {
+    width: min-content;
+    padding: 0;
+}
+
+tbody tr:last-child {
+    border-bottom: hidden;
 }
