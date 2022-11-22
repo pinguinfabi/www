@@ -1,12 +1,29 @@
 <?php
-  session_start();
-  require_once("../logincheck.php");
-  loginCheck();
-  checkAdminRole();
-  require("../navbar.php");
-  require("../footer.php");
-  require("./users.php");
-  require("./post.php");
+	session_start();
+	require_once("../logincheck.php");
+	loginCheck();
+	checkAdminRole();
+	require("../navbar.php");
+	require("../footer.php");
+	require("./users.php");
+	require_once("../config.php");
+
+	if(isset($_GET["id"])){
+		$id = $_GET["id"];
+
+		$conn = mysqli_connect($db_host,$db_user,$db_pass,"fabiderpinguin");
+		if(mysqli_connect_errno()){
+			header("Location: ../home/index.php?e=dberr");
+			exit();
+		}
+
+		$stmt = $conn->prepare("SELECT username, email, created_at, updated_at, role FROM users WHERE id = ?");
+    	$stmt->bind_param("i",$id);
+   	 	$stmt->execute();
+    	$stmt->store_result();
+		$stmt->bind_result($username, $email, $crated_at, $updated_at, $role);
+		$stmt->fetch();
+	}
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +52,7 @@
 				?>
 			</ul>
 		</nav>
-
+		
 		<div class="container" id="main_container">
 			<div class="left_sidebar">
 				<div class="user_list">
@@ -47,7 +64,17 @@
 					<div id="user_creation_button"><i class="fa-solid fa-user-plus"></i></div>
 				</div>
 			</div>
-			<div class="user_details"></div>
+			<div class="user_details">
+				<div class="user_name"><?=$username?> (<?=$id?>)</div>
+				<div class="user_dates"> 
+					<div class="user_dates-text"> 
+						<div class="user_dates-text1"> <?=date("d/m/Y", strtotime($crated_at))?> </div><br> 
+						<div class="user_dates-text2"><?=date("d/m/Y", strtotime($updated_at))?></div>
+					</div>
+				</div>
+				<div class="user_other-info"> <?=$role?><br></div>
+				<div class="user_mail"> <div class="user_mail-text"> <?=$email?> </div></div>
+			</div>
 			<div class="user_posts">
 			</div>
 			<div class="user_actions">
