@@ -65,22 +65,38 @@
 					<div id="user_creation_button"><i class="fa-solid fa-user-plus"></i></div>
 				</div>
 			</div>
-			<div class="user_details">
-				<div class="user_name"><?=$username?> (<?=$id?>)</div>
+			<div class="user_details" id="user_details_container">
+				<div class="user_name"><?php if(isset($username)) echo $username; ?> <?php if(isset($id)) echo "(".$id.")" ; ?></div>
 				<div class="user_dates"> 
 					<div class="user_dates-text"> 
-						<div class="user_dates-text1"> <?=date("d/m/Y", strtotime($created_at))?> </div><br> 
-						<div class="user_dates-text2"><?=date("d/m/Y", strtotime($updated_at))?></div>
+						<div class="user_dates-text1"><?php if(isset($created_at)) echo date("d/m/Y", strtotime($created_at)); ?> </div><br> 
+						<div class="user_dates-text2"><?php if(isset($updated_at)) echo date("d/m/Y", strtotime($updated_at)); ?></div>
 					</div>
 				</div>
-				<div class="user_other-info"> <?=$role?><br></div>
-				<div class="user_mail"> <div class="user_mail-text"> <?=$email?> </div></div>
+				<div class="user_other-info"> <?php if(isset($role)) echo $role; ?><br></div>
+				<div class="user_mail"> <div class="user_mail-text"> <?php if(isset($email)) echo $email; ?> </div></div>
 			</div>
+			<?php 
+				if (!isset($_GET["id"])) {
+					echo "<script>";
+					echo "document.getElementById('user_details_container').innerHTML = null;";
+					echo "document.getElementById('user_details_container').classList.remove('user_details');";
+					echo "document.getElementById('user_details_container').classList.add('choose_user_note');";
+					echo "document.getElementById('user_details_container').innerHTML = '<h1><i class=\"fa-solid fa-arrow-left-long\"></i><br><br>Choose a user!</h1>';";
+					echo "</script>";
+					echo "<style>";
+					echo ".user_actions { filter: contrast(0.25); }";
+					echo ".user_actions * { cursor: not-allowed !important; }";
+					echo ".user_posts { filter: contrast(0.25); }";
+					echo ".user_posts, .user_posts * { cursor: not-allowed !important; }";
+					echo "</style>";
+				}
+			?>
 			<div class="user_posts">
 				<table>
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th>Id</th>
 							<th>Titel</th>
 							<th>Datum</th>
 							<th>Author</th>
@@ -88,8 +104,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
-							post_posts($id);
+						<?php
+							if(isset($_GET["id"])) {
+								post_posts($id);
+							}
 						?>
 					</tbody>
 				</table>
@@ -122,6 +140,14 @@
 			</div>
 		</div>
 		<script src="../message_script.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="./script.js"></script> 
   </body>
 </html>
+
+
+
+
+
+
+<!-- <i class="fa-solid fa-circle-check"></i> -->

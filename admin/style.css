@@ -222,3 +222,34 @@ tbody tr td:last-child {
 tbody tr:last-child {
     border-bottom: hidden;
 }
+
+.user_posts-link,
+.user_posts-link:visited {
+    text-decoration: none;
+    text-decoration-style: none;
+    cursor: pointer;
+    color: white;
+}
+
+.user_posts-link:hover {
+    text-decoration: underline;
+}
+
+.choose_user_note {
+    background-color: #333;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choose_user_note h1 {
+    display: block;
+}
+
+.choose_user_note i {
+    font-size: 200%;
+}

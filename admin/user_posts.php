@@ -21,6 +21,7 @@ function post_posts($id){
             echo '<td>'.$row["created_at"].'</td>';
             echo '<td>'.$row["author"].'</td>';
             echo '<td>'.$row["visibility"].'</td>';
+            echo '<td><a class="user_posts-link" href="../blog/?id='.$row["article_id"].'">Mehr lesen</a></td>';
             echo '</tr>';
         }
     }
